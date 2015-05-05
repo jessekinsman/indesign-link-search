@@ -13,7 +13,7 @@ Users\[username]\AppData\Roaming\Adobe\InDesign\[version]\[language]\Scripts\Scr
 ###Run the script 
 Double click the scripts in the scripts panel or assign a keystroke to run the script
 
-###To Assigna keystroke to run
+###To Assign a keystroke to run the script
 1. Edit > Keyboard Shortcuts
 2. Select Scripts in the "Product Area" dialog
 3. Select this script in "Commands" window

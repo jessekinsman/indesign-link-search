@@ -8,10 +8,7 @@
 // Pass in function to open the document, then show link using link.show()
 /*global UserInteractionLevels:false, File:false, Window:false, SaveOptions:false, alert: false, FitOptions:false, app:false */
 
-/* jshint ignore:start */
 #targetengine "session";
-/* jshint ignore:end */
-
 
 function findLinks(term) {
     var indexObj = {},
@@ -28,18 +25,13 @@ function findLinks(term) {
         var pageItem, linkName, pageNum = "on pasteboard",
             linkPath, linked, linkArr, par, parPage, docPath, linkId;
         linkArr = doc.links;
-        //alert("link array length " + linkArr.length);
         for (var idx = 0; idx < linkArr.length; idx++) {
             pageItem = linkArr.item(idx);
             linkName = pageItem.name;
             if (linkName.toLowerCase().search(term.toLowerCase()) > -1) {
-                //alert("link name: " + linkName);
-                //pageItem.show();
                 linkId = pageItem.id;
                 par = pageItem.parent;
-                //alert("parent type " + par.constructor.name);
                 if (par.constructor.name === "Story") {
-                    //alert("page items length " + par.pageItems.length);
                     for (var txtl = 0; txtl < par.textContainers.length; txtl++) {
                         parPage = par.textContainers[txtl].parentPage;
                         if (parPage !== null) {
@@ -55,8 +47,6 @@ function findLinks(term) {
                         pageNum = "on Pasteboard";
                     }
                 }
-
-                //alert("we have a match " + linkName + " on page " + pageNum);
                 matches.push({
                     "text": linkName + ", " + pageNum,
                     "docPath": doc.fullName,
@@ -69,7 +59,6 @@ function findLinks(term) {
     if (book.reflect.name == "BookContents") {
         for (var docs = 0; docs < book.length; docs++) {
             myDoc = book.item(docs);
-            // uncomment below to work through book
             myDoc = app.open(File(myDoc.fullName), false);
             loopDoc(myDoc);
         }
@@ -87,7 +76,6 @@ function closeDoc(doc) {
 }
 
 function showMissing(missing, linked) {
-    //alert("missing: " + missing.length + " linked: " + linked.length);
     showInfoDialog(missing, linked);
 }
 

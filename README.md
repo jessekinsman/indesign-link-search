@@ -1,6 +1,6 @@
 # indesign-link-search
 
-Search for specific links in an indesign document or book and then view them
+Search for specific links in an indesign document or book and then view the links within the document
 
 Compatible with InDesign CS6 and tested on OSX
 
